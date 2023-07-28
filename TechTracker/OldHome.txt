@@ -1,0 +1,71 @@
+import requests
+import streamlit as st
+from PIL import Image
+# Import the app function from login_system.py
+from login_system import app as login_app
+
+
+# Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
+st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
+
+st.title("Home")
+st.sidebar.success("Select a page above.")
+
+with st.container():
+    st.subheader("Hi, I am Adnan :wave:")
+    st.title("A Computer Science Student at Rutgers University")
+    st.write(
+        "I am passionate about finding ways to use Python and VBA to be more efficient and effective in business settings."
+    )
+    st.write("[Learn More >](https://pythonandvba.com)")
+
+#Run app in Terminal - streamlit run Home.py
+
+
+New Old Home: Monday Jul 24, 2023 - 8:40 p.m. 
+
+import requests
+import streamlit as st
+from PIL import Image
+# Import the app function from login_system.py
+from login_system import app as login_app
+
+
+# Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
+st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
+
+#Run app in Terminal - streamlit run Home.py
+
+# Function to display the Home page
+def home_page():
+    st.title("Home")
+    st.sidebar.success("Select a page above.")
+
+    with st.container():
+        st.subheader("Hi, I am Adnan :wave:")
+        st.title("A Computer Science Student at Rutgers University")
+        st.write(
+            "I am passionate about finding ways to use Python and VBA to be more efficient and effective in business settings."
+        )
+        st.write("[Learn More >](https://pythonandvba.com)")
+
+# Function to display the Login page
+def login_page():
+    st.title("Login")
+    login_app()  # Call the login_app function from login_system.py
+
+# Main function to run the app
+def main():
+    # Define pages to navigate
+    pages = {"Home": home_page, "Login": login_page}
+
+    # Display the sidebar navigation options
+    st.sidebar.title("Navigation")
+    page = st.sidebar.radio("Go to:", list(pages.keys()))
+
+    # Navigate to the selected page
+    pages[page]()
+
+# Run the app
+if __name__ == "__main__":
+    main()
